@@ -6,10 +6,21 @@ import heroImg from './assets/hero_main.png'
 import banner6 from './assets/banner6.png'
 import milletImg from './assets/millet.png'
 import phoneMockup from './assets/phone_mockup.png'
+// Import Category Images
+import catOils from './assets/cat_oils_transparent.png'
+import catRice from './assets/cat_rice_transparent.png'
+import catSpices from './assets/cat_spices_transparent.png'
+import catFlour from './assets/cat_flour_transparent.png'
+import catBranded from './assets/cat_branded_transparent.png'
+// Import App Images
+import appWholesaler from './assets/app_wholesaler.jpg'
+import appLineman from './assets/app_lineman.jpg'
+import appDelivery from './assets/app_delivery.jpg'
 import PrivacyPolicy from './PrivacyPolicy'
 import TermsConditions from './TermsConditions'
 import ShippingPolicy from './ShippingPolicy'
 import RefundPolicy from './RefundPolicy'
+
 
 // --- SCROLL TO TOP HELPER ---
 const ScrollToTop = () => {
@@ -212,11 +223,11 @@ const LandingPage = () => (
     <section className="category-section" id="products">
       <div className="category-container">
         {[
-          { name: "Cooking Oils", img: "/src/assets/cat_oils_transparent.png" },
-          { name: "Rice & Grains", img: "/src/assets/cat_rice_transparent.png" },
-          { name: "Spices", img: "/src/assets/cat_spices_transparent.png" },
-          { name: "Wheat & Flour", img: "/src/assets/cat_flour_transparent.png" },
-          { name: "Branded Foods", img: "/src/assets/cat_branded_transparent.png" }
+          { name: "Cooking Oils", img: catOils },
+          { name: "Rice & Grains", img: catRice },
+          { name: "Spices", img: catSpices },
+          { name: "Wheat & Flour", img: catFlour },
+          { name: "Branded Foods", img: catBranded }
         ].map((cat, i) => (
           <div className="category-item" key={i}>
             <div className="category-img-circle">
@@ -257,9 +268,9 @@ const LandingPage = () => (
       </div>
       <div className="ecosystem-grid">
          {[
-           { name: "Wholesaler App", img: "/src/assets/app_wholesaler.jpg" },
-           { name: "Lineman App", img: "/src/assets/app_lineman.jpg" },
-           { name: "Deliveryman App", img: "/src/assets/app_delivery.jpg" }
+           { name: "Wholesaler App", img: appWholesaler },
+           { name: "Lineman App", img: appLineman },
+           { name: "Deliveryman App", img: appDelivery }
          ].map((app, i) => (
            <div className="eco-card" key={i}>
              <div className="eco-img-mockup">
