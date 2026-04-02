@@ -5,7 +5,7 @@ import logo from './assets/logo.png'
 import heroImg from './assets/hero_main.png'
 import banner6 from './assets/banner6.png'
 import milletImg from './assets/millet.png'
-import phoneMockup from './assets/phone_mockup.png'
+import mobileAppImg from './assets/mobile app (2).png'
 // Import Category Images
 import catOils from './assets/cat_oils_transparent.png'
 import catRice from './assets/cat_rice_transparent.png'
@@ -64,7 +64,6 @@ const Navbar = () => {
           <Link to="/" onClick={handleNavClick}>Home</Link>
           <a href="/#about" onClick={handleNavClick}>About Us</a>
           <a href="/#products" onClick={handleNavClick}>Products</a>
-          <a href="/#ecosystem" onClick={handleNavClick}>Digital Suite</a>
           <a href="/#contact-us" className="nav-cta" onClick={handleNavClick}>Download Apps</a>
         </div>
         <div className="nav-mobile-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -100,16 +99,6 @@ const Footer = () => (
         </ul>
       </div>
 
-      <div className="footer-nav-col">
-        <h3>Our Apps</h3>
-        <div className="footer-h-line"></div>
-        <ul className="footer-nav-list">
-          <li><a href="https://play.google.com/store/apps/details?id=com.ocean.ramesh_traders_wholesaler" target="_blank" rel="noopener noreferrer">Wholesaler App</a></li>
-          <li><a href="https://play.google.com/store/apps/details?id=com.ocean.ramesh_trader_lineman_app" target="_blank" rel="noopener noreferrer">Lineman App</a></li>
-          <li><a href="https://play.google.com/store/apps/details?id=com.ocean.ramesh_trader_deliveryman" target="_blank" rel="noopener noreferrer">Delivery App</a></li>
-          <li><a href="#support">Support Center</a></li>
-        </ul>
-      </div>
 
       <div className="footer-nav-col contact-details-col">
         <h3>Contact Info</h3>
@@ -359,35 +348,12 @@ const LandingPage = () => (
       </div>
     </section>
 
-    <section className="ecosystem-section" id="ecosystem">
-      <div className="ecosystem-header">
-         <span className="eco-badge">Digital Suite</span>
-         <h2 className="eco-title">Our Wholesale Ecosystem</h2>
-         <p className="eco-subtitle">Cutting-edge technology, powering a century of trust across Coimbatore.</p>
-      </div>
-      <div className="ecosystem-grid">
-         {[
-           { name: "Wholesaler App", img: appWholesaler },
-           { name: "Lineman App", img: appLineman },
-           { name: "Deliveryman App", img: appDelivery }
-         ].map((app, i) => (
-           <div className="eco-card" key={i}>
-             <div className="eco-img-mockup">
-               <img src={app.img} alt={app.name} />
-             </div>
-             <h3>{app.name}</h3>
-             <p>Optimized digital tools for modern wholesale business fulfillment.</p>
-             <button className="eco-btn">Download Now</button>
-           </div>
-         ))}
-      </div>
-    </section>
 
     <section className="app-red-section" id="apps">
       <div className="app-red-container">
         <div className="app-red-visual">
           <div className="app-glow-bg"></div>
-          <img src={phoneMockup} alt="App Interface" className="app-mockup-img" />
+          <img src={mobileAppImg} alt="App Interface" className="app-mockup-img" />
         </div>
         <div className="app-red-text-area">
           <span className="app-red-label">Established 1923</span>
