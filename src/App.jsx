@@ -12,6 +12,12 @@ import catRice from './assets/cat_rice_transparent.png'
 import catSpices from './assets/cat_spices_transparent.png'
 import catFlour from './assets/cat_flour_transparent.png'
 import catBranded from './assets/cat_branded_transparent.png'
+import catDryFruits from './assets/dry_fruits-removebg-preview.png'
+import catSalt from './assets/img-1754578580432-removebg-preview.png'
+import catSugar from './assets/suagar-removebg-preview.png'
+import catEssence from './assets/bottle.png'
+import catNoodles from './assets/noodles-removebg-preview.png'
+import catMillet from './assets/millet-removebg-preview.png'
 // Import App Images
 import appWholesaler from './assets/app_wholesaler.jpg'
 import appLineman from './assets/app_lineman.jpg'
@@ -222,12 +228,15 @@ const CategoryCarousel = () => {
   const categories = [
     { name: "Cooking Oils", img: catOils },
     { name: "Rice & Grains", img: catRice },
-    { name: "Rice & Grains", img: catRice },
-    { name: "Spices", img: catSpices },
-    { name: "Spices", img: catSpices },
+    { name: "Organic Spices", img: catSpices },
     { name: "Wheat & Flour", img: catFlour },
-    { name: "Wheat & Flour", img: catFlour },
-    { name: "Branded Foods", img: catBranded }
+    { name: "Branded Foods", img: catBranded },
+    { name: "Fresh Millets", img: catMillet },
+    { name: "Dry Fruits", img: catDryFruits },
+    { name: "Salt & Seasonings", img: catSalt },
+    { name: "Sugars & Sweeteners", img: catSugar },
+    { name: "Essence & Food Colour", img: catEssence },
+    { name: "Noodles & Vermicelli", img: catNoodles }
   ];
 
   // Logic to show certain number of items per view
