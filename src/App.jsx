@@ -216,27 +216,117 @@ const HeroBanner = () => {
   );
 };
 
+// --- NEW CATEGORY CAROUSEL ---
+const CategoryCarousel = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const categories = [
+    { name: "Cooking Oils", img: catOils },
+    { name: "Rice & Grains", img: catRice },
+    { name: "Rice & Grains", img: catRice },
+    { name: "Spices", img: catSpices },
+    { name: "Spices", img: catSpices },
+    { name: "Wheat & Flour", img: catFlour },
+    { name: "Wheat & Flour", img: catFlour },
+    { name: "Branded Foods", img: catBranded }
+  ];
+
+  // Logic to show certain number of items per view
+  // On desktop 5, tablet 3, mobile 2
+  const [itemsPerView, setItemsPerView] = useState(5);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) setItemsPerView(2);
+      else if (window.innerWidth <= 1024) setItemsPerView(3);
+      else setItemsPerView(5);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const totalSlides = Math.ceil(categories.length / itemsPerView);
+
+  const nextSlide = () => {
+    if (categories.length <= itemsPerView) return;
+    setCurrentSlide((prev) => (prev >= categories.length - itemsPerView ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    if (categories.length <= itemsPerView) return;
+    setCurrentSlide((prev) => (prev <= 0 ? categories.length - itemsPerView : prev - 1));
+  };
+
+  // Auto-scroll loop
+  useEffect(() => {
+    if (categories.length <= itemsPerView) return;
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [itemsPerView, categories.length]);
+
+  return (
+    <div className="cat-carousel-outer">
+      <div className="cat-carousel-inner">
+        <div 
+          className="cat-carousel-track" 
+          style={{ 
+            transform: `translateX(-${(currentSlide * (100 / itemsPerView))}%)`,
+            transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
+          }}
+        >
+          {categories.map((cat, i) => (
+            <div 
+              className="category-item-slide" 
+              key={i} 
+              style={{ flex: `0 0 ${100 / itemsPerView}%` }}
+            >
+              <div className="category-img-circle">
+                <img src={cat.img} alt={cat.name} />
+              </div>
+              <h4>{cat.name}</h4>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {categories.length > itemsPerView && (
+        <>
+          <button className="cat-nav-btn prev" onClick={prevSlide}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          
+          <button className="cat-nav-btn next" onClick={nextSlide}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+
+          <div className="cat-carousel-indicator">
+            {categories.slice(0, categories.length - itemsPerView + 1).map((_, i) => (
+              <div 
+                key={i} 
+                className={`cat-dot ${currentSlide === i ? 'active' : ''}`}
+                onClick={() => setCurrentSlide(i)}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
 const LandingPage = () => (
   <main>
     <HeroBanner />
 
     <section className="category-section" id="products">
-      <div className="category-container">
-        {[
-          { name: "Cooking Oils", img: catOils },
-          { name: "Rice & Grains", img: catRice },
-          { name: "Spices", img: catSpices },
-          { name: "Wheat & Flour", img: catFlour },
-          { name: "Branded Foods", img: catBranded }
-        ].map((cat, i) => (
-          <div className="category-item" key={i}>
-            <div className="category-img-circle">
-               <img src={cat.img} alt={cat.name} />
-            </div>
-            <h4>{cat.name}</h4>
-          </div>
-        ))}
+      <div className="category-header-main">
+        <span className="cat-sub">Premium Selection</span>
+        <h2 className="cat-main-title">Exquisite Product Categories</h2>
+        <div className="cat-underline"></div>
       </div>
+      <CategoryCarousel />
     </section>
 
     <section className="premium-about" id="about" style={{ backgroundImage: `url(${milletImg})` }}>
