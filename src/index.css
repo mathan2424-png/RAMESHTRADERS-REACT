@@ -51,7 +51,7 @@ h1, h2, h3, .nav-links a {
 }
 
 .nav-container {
-  max-width: 1300px;
+  max-width: 1800px;
   margin: 0 auto;
   padding: 0 0%;
   display: flex;
@@ -68,7 +68,7 @@ h1, h2, h3, .nav-links a {
 }
 
 .nav-logo {
-  height: 92px; /* Professional constraint */
+  height: 100px; /* Professional constraint */
   width: auto;
   transition: all 0.4s ease;
   object-fit: contain;
@@ -788,7 +788,7 @@ hero-btns {
   align-items: flex-start;
   gap: 40px;
   flex-wrap: wrap;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
